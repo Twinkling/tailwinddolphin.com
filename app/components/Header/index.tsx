@@ -89,7 +89,7 @@ const Header = () => {
             )}
           </button>
           {/* GITHUB */}
-          <a href="https://github.com/Twinkling/tailwind-helper-online">
+          <a href="https://github.com/Twinkling/tailwinddolphin.com">
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='24'
