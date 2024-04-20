@@ -3,8 +3,8 @@ import Link from "next/link"
 export default function Home() {
   const links = [{ href: '/font', label: 'Font' }, { href: '/layout', label: 'Layout' }, { href: '/position', label: 'Position' }, {href: '/grid', label: 'Grid'}, {href: '/image', label: 'Image'}, {href: '/colors', label: 'Colors'}];
   return (<>
-    <h1 className="text-5xl flex justify-center items-center">
-      <svg className="w-16 h-16" version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <h1 className="sm:text-5xl text-3xl flex justify-center items-center">
+      <svg className="w-10 h-10 sm:w-16 sm:h-16" version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
         <linearGradient id="gradient">
           <stop offset="0%" stopColor="#0ea5e9" />
           <stop offset="100%" stopColor="#2563eb" />
@@ -20,7 +20,7 @@ export default function Home() {
       <span className="bg-clip-text bg-gradient-to-r from-sky-500 to-blue-600 text-transparent">Tailwind Dolphin</span>
     </h1>
     <div>A tailwind multi-tool to convert and visualize your classes properties</div>
-    <nav className="text-2xl">
+    <nav className="text-2xl flex flex-wrap justify-center">
       {links.map(link => <Link className="mr-2 hover:text-blue-500" href={link.href} key={link.href}>{link.label}</Link>)}
     </nav>
   </>)
