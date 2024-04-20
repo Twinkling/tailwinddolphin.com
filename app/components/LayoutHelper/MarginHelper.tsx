@@ -101,7 +101,7 @@ const MarginHelper = ({ setMargin }: Props): JSX.Element => {
   }, [orientation, orientationOutput])
 
   useEffect(() => {
-    setConvertedMargin(getClosestItem(margins, value, unit))
+    setConvertedMargin(getClosestItem(margins, value!, unit))
   }, [value, unit])
 
   useEffect(() => {
@@ -168,7 +168,7 @@ const MarginHelper = ({ setMargin }: Props): JSX.Element => {
             step={unit === 'px' ? 1 : unit === 'rem' ? 0.125 : 0.1}
             min={0}
             max={unit === 'px' ? 384 : unit === 'rem' ? 24 : 0}
-            value={value}
+            value={value!}
             setValue={setValue}
             hasUnit={true}
           />
@@ -180,7 +180,7 @@ const MarginHelper = ({ setMargin }: Props): JSX.Element => {
           step={unit === 'px' ? 1 : unit === 'rem' ? 0.125 : 0.1}
           min={0}
           max={unit === 'px' ? 384 : unit === 'rem' ? 24 : 0}
-          value={value}
+          value={value!}
           setValue={setValue}
         />
 
@@ -190,10 +190,10 @@ const MarginHelper = ({ setMargin }: Props): JSX.Element => {
             e.preventDefault()
             if (unit === 'px') {
               setUnit('rem')
-              setValue(unitConverter(value, 'px'))
+              setValue(unitConverter(value!, 'px'))
             } else if (unit === 'rem') {
               setUnit('px')
-              setValue(unitConverter(value, 'rem'))
+              setValue(unitConverter(value!, 'rem'))
             }
           }}>
           {unit == 'px' ? 'Switch to rem' : 'Switch to px'}
@@ -214,13 +214,13 @@ const MarginHelper = ({ setMargin }: Props): JSX.Element => {
           <CopyToClipboard
             valueToCopy={`${
               isNegative ? '-' : ''
-            }${convertedMargin.rem.toString()}`}>
+            }${convertedMargin.rem!.toString()}`}>
             <span>{`${isNegative ? '-' : ''}${convertedMargin.rem}rem`}</span>
           </CopyToClipboard>
           <CopyToClipboard
             valueToCopy={`${
               isNegative ? '-' : ''
-            }${convertedMargin.px.toString()}`}>
+            }${convertedMargin.px!.toString()}`}>
             <span>{`${isNegative ? '-' : ''}${convertedMargin.px}px`}</span>
           </CopyToClipboard>
         </div>

@@ -17,7 +17,7 @@ export const getClosestItem = (
 ): Findable => {
   return tailwindClassesArray.reduce(
     (prev: Findable, curr: Findable): Findable => {
-      return Math.abs(curr[key] - value) < Math.abs(prev[key] - value)
+      return Math.abs(curr[key!]! - value) < Math.abs(prev[key!]! - value)
         ? curr
         : prev
     }

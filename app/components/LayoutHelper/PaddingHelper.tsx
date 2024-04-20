@@ -103,7 +103,7 @@ const PaddingHelper = ({ setPadding }: Props): JSX.Element => {
 
   // updates converted size on value and unit change
   useEffect(() => {
-    setConvertedPadding(getClosestItem(paddings, value, unit))
+    setConvertedPadding(getClosestItem(paddings, value!, unit))
   }, [value, unit])
 
   useEffect(() => {
@@ -170,7 +170,7 @@ const PaddingHelper = ({ setPadding }: Props): JSX.Element => {
             step={unit === 'px' ? 1 : unit === 'rem' ? 0.125 : 0.1}
             min={0}
             max={unit === 'px' ? 384 : unit === 'rem' ? 24 : 0}
-            value={value}
+            value={value!}
             setValue={setValue}
             hasUnit={true}
           />
@@ -182,7 +182,7 @@ const PaddingHelper = ({ setPadding }: Props): JSX.Element => {
           step={unit === 'px' ? 1 : unit === 'rem' ? 0.125 : 0.1}
           min={0}
           max={unit === 'px' ? 384 : unit === 'rem' ? 24 : 0}
-          value={value}
+          value={value!}
           setValue={setValue}
         />
 
@@ -192,10 +192,10 @@ const PaddingHelper = ({ setPadding }: Props): JSX.Element => {
             e.preventDefault()
             if (unit === 'px') {
               setUnit('rem')
-              setValue(unitConverter(value, 'px'))
+              setValue(unitConverter(value!, 'px'))
             } else if (unit === 'rem') {
               setUnit('px')
-              setValue(unitConverter(value, 'rem'))
+              setValue(unitConverter(value!, 'rem'))
             }
           }}>
           {unit == 'px' ? 'Switch to rem' : 'Switch to px'}
@@ -216,13 +216,13 @@ const PaddingHelper = ({ setPadding }: Props): JSX.Element => {
           <CopyToClipboard
             valueToCopy={`${
               isNegative ? '-' : ''
-            }${convertedPadding.rem.toString()}`}>
+            }${convertedPadding.rem!.toString()}`}>
             <span>{`${isNegative ? '-' : ''}${convertedPadding.rem}rem`}</span>
           </CopyToClipboard>
           <CopyToClipboard
             valueToCopy={`${
               isNegative ? '-' : ''
-            }${convertedPadding.px.toString()}`}>
+            }${convertedPadding.px!.toString()}`}>
             <span>{`${isNegative ? '-' : ''}${convertedPadding.px}px`}</span>
           </CopyToClipboard>
         </div>

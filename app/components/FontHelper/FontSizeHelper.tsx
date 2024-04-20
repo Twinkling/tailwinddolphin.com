@@ -103,10 +103,10 @@ const FontSizeHelper = ({ setFontSize }: Props): JSX.Element => {
           <span className='font-semibold'>{`${convertedFontSize.class}`}</span>
         </CopyToClipboard>
         <div className='flex gap-4'>
-          <CopyToClipboard valueToCopy={convertedFontSize.rem.toString()}>
+          <CopyToClipboard valueToCopy={convertedFontSize.rem!.toString()}>
             <span>{`${convertedFontSize.rem}rem`}</span>
           </CopyToClipboard>
-          <CopyToClipboard valueToCopy={convertedFontSize.px.toString()}>
+          <CopyToClipboard valueToCopy={convertedFontSize.px!.toString()}>
             <span>{`${convertedFontSize.px}px`}</span>
           </CopyToClipboard>
         </div>

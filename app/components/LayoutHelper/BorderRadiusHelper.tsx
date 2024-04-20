@@ -108,9 +108,9 @@ const BorderRadiusHelper = ({ setBorderRadius }: Props): JSX.Element => {
 
   // updates converted size on value and unit change
   useEffect(() => {
-    if ((unit === 'px' && value >= 32) || (unit === 'rem' && value >= 1))
+    if ((unit === 'px' && value! >= 32) || (unit === 'rem' && value! >= 1))
       setConvertedBorderRadius(borderRadiuses[borderRadiuses.length - 1])
-    else setConvertedBorderRadius(getClosestItem(borderRadiuses, value, unit))
+    else setConvertedBorderRadius(getClosestItem(borderRadiuses, value!, unit))
   }, [value, unit])
 
   useEffect(() => {
@@ -165,7 +165,7 @@ const BorderRadiusHelper = ({ setBorderRadius }: Props): JSX.Element => {
             step={unit === 'px' ? 1 : unit === 'rem' ? 0.125 : 0.1}
             min={0}
             max={unit === 'px' ? 32 : unit === 'rem' ? 2 : 0}
-            value={value}
+            value={value!}
             setValue={setValue}
             hasUnit={true}
           />
@@ -177,7 +177,7 @@ const BorderRadiusHelper = ({ setBorderRadius }: Props): JSX.Element => {
           step={unit === 'px' ? 1 : unit === 'rem' ? 0.125 : 0.1}
           min={0}
           max={unit === 'px' ? 32 : unit === 'rem' ? 2 : 0}
-          value={value}
+          value={value!}
           setValue={setValue}
         />
 
@@ -187,10 +187,10 @@ const BorderRadiusHelper = ({ setBorderRadius }: Props): JSX.Element => {
             e.preventDefault()
             if (unit === 'px') {
               setUnit('rem')
-              setValue(unitConverter(value, 'px'))
+              setValue(unitConverter(value!, 'px'))
             } else if (unit === 'rem') {
               setUnit('px')
-              setValue(unitConverter(value, 'rem'))
+              setValue(unitConverter(value!, 'rem'))
             }
           }}>
           {unit == 'px' ? 'Switch to rem' : 'Switch to px'}
@@ -202,10 +202,10 @@ const BorderRadiusHelper = ({ setBorderRadius }: Props): JSX.Element => {
           <span className='font-semibold'>{`${orientationOutput}${convertedBorderRadius.class}`}</span>
         </CopyToClipboard>
         <div className='flex gap-4'>
-          <CopyToClipboard valueToCopy={convertedBorderRadius.rem.toString()}>
+          <CopyToClipboard valueToCopy={convertedBorderRadius.rem!.toString()}>
             <span>{`${convertedBorderRadius.rem}rem`}</span>
           </CopyToClipboard>
-          <CopyToClipboard valueToCopy={convertedBorderRadius.px.toString()}>
+          <CopyToClipboard valueToCopy={convertedBorderRadius.px!.toString()}>
             <span>{`${convertedBorderRadius.px}px`}</span>
           </CopyToClipboard>
         </div>

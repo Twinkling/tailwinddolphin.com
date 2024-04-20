@@ -24,7 +24,7 @@ const GapHelper = ({ setGap }: Props): JSX.Element => {
 
   // updates converted size on value and unit change
   useEffect(() => {
-    setConvertedGap(getClosestItem(gaps, value, unit))
+    setConvertedGap(getClosestItem(gaps, value!, unit))
   }, [value, unit])
 
   useEffect(() => {
@@ -47,7 +47,7 @@ const GapHelper = ({ setGap }: Props): JSX.Element => {
             step={unit === 'px' ? 1 : unit === 'rem' ? 0.125 : 0.1}
             min={0}
             max={unit === 'px' ? 384 : unit === 'rem' ? 24 : 0}
-            value={value}
+            value={value!}
             setValue={setValue}
             hasUnit={true}
           />
@@ -59,7 +59,7 @@ const GapHelper = ({ setGap }: Props): JSX.Element => {
           step={unit === 'px' ? 1 : unit === 'rem' ? 0.125 : 0.1}
           min={0}
           max={unit === 'px' ? 384 : unit === 'rem' ? 24 : 0}
-          value={value}
+          value={value!}
           setValue={setValue}
         />
 
@@ -69,10 +69,10 @@ const GapHelper = ({ setGap }: Props): JSX.Element => {
             e.preventDefault()
             if (unit === 'px') {
               setUnit('rem')
-              setValue(unitConverter(value, 'px'))
+              setValue(unitConverter(value!, 'px'))
             } else if (unit === 'rem') {
               setUnit('px')
-              setValue(unitConverter(value, 'rem'))
+              setValue(unitConverter(value!, 'rem'))
             }
           }}>
           {unit == 'px' ? 'Switch to rem' : 'Switch to px'}
@@ -85,10 +85,10 @@ const GapHelper = ({ setGap }: Props): JSX.Element => {
           <span className='font-semibold'>{`gap-${convertedGap.class}`}</span>
         </CopyToClipboard>
         <div className='flex gap-4'>
-          <CopyToClipboard valueToCopy={convertedGap.rem.toString()}>
+          <CopyToClipboard valueToCopy={convertedGap.rem!.toString()}>
             <span>{`${convertedGap.rem}rem`}</span>
           </CopyToClipboard>
-          <CopyToClipboard valueToCopy={convertedGap.px.toString()}>
+          <CopyToClipboard valueToCopy={convertedGap.px!.toString()}>
             <span>{`${convertedGap.px}px`}</span>
           </CopyToClipboard>
         </div>

@@ -38,7 +38,7 @@ const StyledInput = ({
         }}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           if (e.target.value) setValue(parseFloat(e.target.value))
-          else setValue(null)
+          else setValue(null!)
         }}
         inputMode='decimal'
       />

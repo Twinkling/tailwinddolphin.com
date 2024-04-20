@@ -20,7 +20,7 @@ const FontWeightHelper = ({ setFontWeight }: Props): JSX.Element => {
   const reset = () => {
     if (value === fontWeights[3].weight) return // prevents reset bug
 
-    setValue(fontWeights[3].weight)
+    setValue(fontWeights[3].weight!)
     setWeight(fontWeights[3])
     setOutOfBounds(null)
   }
@@ -77,7 +77,7 @@ const FontWeightHelper = ({ setFontWeight }: Props): JSX.Element => {
         <CopyToClipboard valueToCopy={weight.class.toString()}>
           <span className='font-semibold'>{`${weight!.class}`}</span>
         </CopyToClipboard>
-        <CopyToClipboard valueToCopy={weight.weight.toString()}>
+        <CopyToClipboard valueToCopy={weight.weight!.toString()}>
           <span>{`${weight.weight}`}</span>
         </CopyToClipboard>
 

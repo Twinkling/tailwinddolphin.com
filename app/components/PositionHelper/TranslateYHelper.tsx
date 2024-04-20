@@ -29,9 +29,9 @@ const TranslateYHelper = ({ setTranslateY }: Props): JSX.Element => {
   // updates converted size on value and unit change
   useEffect(() => {
     if (unit === 'percent') {
-      setConvertedTranslate(translates[value])
+      setConvertedTranslate(translates[value!])
     } else {
-      setConvertedTranslate(getClosestItem(translates, value, unit))
+      setConvertedTranslate(getClosestItem(translates, value!, unit))
     }
   }, [value, unit])
 
@@ -101,7 +101,7 @@ const TranslateYHelper = ({ setTranslateY }: Props): JSX.Element => {
                 step={unit === 'px' ? 1 : unit === 'rem' ? 0.125 : 0.1}
                 min={0}
                 max={unit === 'px' ? 384 : unit === 'rem' ? 24 : 0}
-                value={value}
+                value={value!}
                 setValue={setValue}
               />
             </>
@@ -132,7 +132,7 @@ const TranslateYHelper = ({ setTranslateY }: Props): JSX.Element => {
                     translates.filter((item) => item.type === 'fraction')
                       .length - 1
                   }
-                  value={translates[value].percent}
+                  value={translates[value!].percent}
                 />
                 <span className='absolute top-0 flex items-center w-10 h-full text-indigo-700 pointer-events-none right-10 dark:text-indigo-300'>
                   %
@@ -200,10 +200,10 @@ const TranslateYHelper = ({ setTranslateY }: Props): JSX.Element => {
             e.preventDefault()
             if (unit === 'px') {
               setUnit('rem')
-              setValue(unitConverter(value, 'px'))
+              setValue(unitConverter(value!, 'px'))
             } else if (unit === 'rem') {
               setUnit('px')
-              setValue(unitConverter(value, 'rem'))
+              setValue(unitConverter(value!, 'rem'))
             } else if (unit === 'percent') {
               reset()
             }
@@ -222,7 +222,7 @@ const TranslateYHelper = ({ setTranslateY }: Props): JSX.Element => {
             <CopyToClipboard
               valueToCopy={`${
                 isNegative ? '-' : ''
-              }${convertedTranslate.rem.toString()}`}>
+              }${convertedTranslate.rem!.toString()}`}>
               <span>{`${isNegative ? '-' : ''}${
                 convertedTranslate.rem
               }rem`}</span>
@@ -230,7 +230,7 @@ const TranslateYHelper = ({ setTranslateY }: Props): JSX.Element => {
             <CopyToClipboard
               valueToCopy={`${
                 isNegative ? '-' : ''
-              }${convertedTranslate.px.toString()}`}>
+              }${convertedTranslate.px!.toString()}`}>
               <span>{`${isNegative ? '-' : ''}${
                 convertedTranslate.px
               }px`}</span>
@@ -238,7 +238,7 @@ const TranslateYHelper = ({ setTranslateY }: Props): JSX.Element => {
           </div>
         ) : (
           <div className='flex gap-4'>
-            <CopyToClipboard valueToCopy={translates[value].percent.toString()}>
+            <CopyToClipboard valueToCopy={translates[value!].percent!.toString()}>
               <span>{`${isNegative ? '-' : ''}${
                 convertedTranslate.percent
               }%`}</span>

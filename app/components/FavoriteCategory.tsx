@@ -11,7 +11,7 @@ const FavoriteCategory = ({ category }: Props) => {
   return (
     <>
       {' '}
-      {!favoritesContext.isCategoryEmpty(category) && (
+      {!favoritesContext?.isCategoryEmpty(category) && (
         <WidgetWrapper>
           <div className='flex flex-col self-start w-full gap-4'>
             <DeleteButton category={category} />

@@ -13,7 +13,7 @@ const Favorites = () => {
   return (
     <div className='flex flex-col gap-4'>
       {/* MESSAGE WHEN NO FAVORITES */}
-      {favoritesContext?.favorites?.length < 1 && (
+      {favoritesContext?.favorites?.length! < 1 && (
         <div className='mt-8 text-center'>
           <h2 className='text-2xl font-semibold'>No favorites yet</h2>
           <p className='text-lg opacity-70'>
@@ -27,7 +27,7 @@ const Favorites = () => {
       )}
 
       {/* COLORS CATEGORY */}
-      {!favoritesContext.isCategoryEmpty('colors') && (
+      {!favoritesContext?.isCategoryEmpty('colors') && (
         <WidgetWrapper>
           <div className='flex flex-col self-start w-full gap-4'>
             <DeleteButton category='colors' />

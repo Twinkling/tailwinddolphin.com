@@ -68,7 +68,7 @@ const FavoriteInput = ({ toPrint, category, defaultName }: Props) => {
               customName.length > 0
                 ? customName
                 : `${defaultName} ${
-                    favoritesContext.countFavorite(category) + 1
+                    favoritesContext!.countFavorite(category) + 1
                   }`
             }
           />

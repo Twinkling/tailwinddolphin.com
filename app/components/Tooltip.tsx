@@ -66,6 +66,7 @@ const Tooltip = ({
         </div>
       </div>
     )
+  return <></>
 }
 
 export default Tooltip

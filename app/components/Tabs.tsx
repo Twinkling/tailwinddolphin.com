@@ -44,7 +44,7 @@ const Tabs = ({ tabsData }: Props) => {
   const resetHighlight = (e: HTMLDivElement) => {
     tabsData.map((tab) => {
       if (tab.title === tab.selectedCategory) {
-        repositionHighlight(selectedTab, tab);
+        repositionHighlight(selectedTab!, tab);
       }
     });
   };

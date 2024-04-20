@@ -29,7 +29,7 @@ const FavoritesProvider = ({
 }: {
   children: React.ReactNode
 }): JSX.Element => {
-  const [favorites, setFavorites] = useState<Favorite[]>(null)
+  const [favorites, setFavorites] = useState<Favorite[]>(null!)
 
   const addFavorite = (favorite: Favorite): void => {
     // return if class already exists

@@ -13,7 +13,7 @@ const DeleteButton = ({ category }: Props): JSX.Element => {
 
   return (
     <>
-      {!favoritesContext.isCategoryEmpty(category) && (
+      {!favoritesContext?.isCategoryEmpty(category) && (
         <button
           className='absolute text-sm transition-all delete top-2 right-3 text-slate-400 dark:hover:text-indigo-300 hover:text-indigo-700'
           onClick={() => setShowConfirm(true)}>
@@ -32,7 +32,7 @@ const DeleteButton = ({ category }: Props): JSX.Element => {
                 className='px-3 text-white transition-colors bg-pink-500 rounded-lg hover:bg-pink-400'
                 onClick={() => {
                   setShowConfirm(false)
-                  favoritesContext.emptyCategory(category)
+                  favoritesContext?.emptyCategory(category)
                 }}>
                 Delete
               </button>

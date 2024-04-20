@@ -44,8 +44,8 @@ const ShadowHelper = ({ setShadow }: Props): JSX.Element => {
     return hex
       .slice(1)
       .replace(/^(.)(.)(.)$/gi, '$1$1$2$2$3$3')
-      .match(/.{2}/g)
-      ?.map((value) => parseInt(value, 16))
+      .match(/.{2}/g)!
+      .map((value) => parseInt(value, 16))
   }
 
   // Distance between 2 colors (in RGB)
@@ -60,7 +60,7 @@ const ShadowHelper = ({ setShadow }: Props): JSX.Element => {
 
   const nearestColor = (colorHex: string): any | Color => {
     return colors.reduce(
-      (a, b) =>
+      (a: [number, Color], b) =>
         (a =
           distance(hexToRgb(colorHex), hexToRgb(b.hex)) < a[0]
             ? [distance(hexToRgb(colorHex), hexToRgb(b.hex)), b]

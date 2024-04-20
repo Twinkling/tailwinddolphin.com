@@ -117,9 +117,9 @@ const PlacementHelper = ({ setPlacement }: Props): JSX.Element => {
   // updates converted size on value and unit change
   useEffect(() => {
     if (unit === 'percent') {
-      setConvertedPlacement(placements[value])
+      setConvertedPlacement(placements[value!])
     } else {
-      setConvertedPlacement(getClosestItem(placements, value, unit))
+      setConvertedPlacement(getClosestItem(placements, value!, unit))
     }
   }, [value, unit])
 
@@ -264,7 +264,7 @@ const PlacementHelper = ({ setPlacement }: Props): JSX.Element => {
                 step={unit === 'px' ? 1 : unit === 'rem' ? 0.125 : 0.1}
                 min={0}
                 max={unit === 'px' ? 384 : unit === 'rem' ? 24 : 0}
-                value={value}
+                value={value!}
                 setValue={setValue}
               />
             </>
@@ -295,7 +295,7 @@ const PlacementHelper = ({ setPlacement }: Props): JSX.Element => {
                     placements.filter((item) => item.type === 'fraction')
                       .length - 1
                   }
-                  value={placements[value].percent}
+                  value={placements[value!].percent}
                 />
                 <span className='absolute top-0 flex items-center w-10 h-full text-indigo-700 pointer-events-none right-10 dark:text-indigo-300'>
                   %
@@ -363,10 +363,10 @@ const PlacementHelper = ({ setPlacement }: Props): JSX.Element => {
             e.preventDefault()
             if (unit === 'px') {
               setUnit('rem')
-              setValue(unitConverter(value, 'px'))
+              setValue(unitConverter(value!, 'px'))
             } else if (unit === 'rem') {
               setUnit('px')
-              setValue(unitConverter(value, 'rem'))
+              setValue(unitConverter(value!, 'rem'))
             } else if (unit === 'percent') {
               reset()
             }
@@ -385,7 +385,7 @@ const PlacementHelper = ({ setPlacement }: Props): JSX.Element => {
             <CopyToClipboard
               valueToCopy={`${
                 isNegative ? '-' : ''
-              }${convertedPlacement.rem.toString()}`}>
+              }${convertedPlacement.rem!.toString()}`}>
               <span>{`${isNegative ? '-' : ''}${
                 convertedPlacement.rem
               }rem`}</span>
@@ -393,7 +393,7 @@ const PlacementHelper = ({ setPlacement }: Props): JSX.Element => {
             <CopyToClipboard
               valueToCopy={`${
                 isNegative ? '-' : ''
-              }${convertedPlacement.px.toString()}`}>
+              }${convertedPlacement.px!.toString()}`}>
               <span>{`${isNegative ? '-' : ''}${
                 convertedPlacement.px
               }px`}</span>
@@ -401,7 +401,7 @@ const PlacementHelper = ({ setPlacement }: Props): JSX.Element => {
           </div>
         ) : (
           <div className='flex gap-4'>
-            <CopyToClipboard valueToCopy={placements[value].percent.toString()}>
+            <CopyToClipboard valueToCopy={placements[value!].percent!.toString()}>
               <span>{`${isNegative ? '-' : ''}${
                 convertedPlacement.percent
               }%`}</span>

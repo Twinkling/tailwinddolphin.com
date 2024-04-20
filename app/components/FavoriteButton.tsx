@@ -22,10 +22,10 @@ const FavoriteButton = ({
   const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     if (isFavorite) {
-      favoritesContext.removeFavorite(favoriteClass)
+      favoritesContext?.removeFavorite(favoriteClass)
       setIsFavorite(false)
     } else {
-      favoritesContext.addFavorite({
+      favoritesContext?.addFavorite({
         class: favoriteClass,
         name: favoriteName,
         category: category,
