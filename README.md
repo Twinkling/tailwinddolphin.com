@@ -1,26 +1,26 @@
  <br />
 <div align="center">
- <a href="https://tailwindhelper.com">
-  <img src="https://user-images.githubusercontent.com/95282692/186514182-21972878-c450-498c-8a64-fcc05f1955da.png" width="500">
+ <a href="https://tailwinddolphin.com">
+  <img src="./public/brand.png" width="500">
  </a>
 </div>
 
 <p align="center">
     A Tailwindcss multi-tool
     <br />
-    <a href="https://tailwindhelper.com"><strong>Visit the website »</strong></a>
+    <a href="https://tailwinddolphin.com"><strong>Visit the website »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/seb-graf/tailwind-helper/issues">Report Bug</a>
+    <a href="https://github.com/Twinkling/tailwinddolphin.com/issues">Report Bug</a>
     ·
-    <a href="https://github.com/seb-graf/tailwind-helper/issues">Request Feature</a>
+    <a href="https://github.com/Twinkling/tailwinddolphin.com/issues">Request Feature</a>
 </p>
 
 # What is it?
 
-Tailwindhelper assists you in styling with tailwindcss. You can visualize different settings, convert values into tailwind classes, figure out the closest colors with hex values and more.
+tailwinddolphin assists you in styling with tailwindcss. You can visualize different settings, convert values into tailwind classes, figure out the closest colors with hex values and more.
 
-## Example case:
+## Example case
 
 > You have a figma design and want to know what the Tailwind class of a 26px font size is?
 
