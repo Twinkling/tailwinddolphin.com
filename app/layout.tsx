@@ -1,14 +1,13 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header, Footer } from "@/components";
+import { metadata as meta, viewport as view } from '@/utils/seo';
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Tailwind CSS Helper",
-  description: "A tailwind multi-tool to convert and visualize your classes properties.",
-};
+export const metadata: Metadata = meta;
+export const viewport: Viewport = view;
 
 export default function RootLayout({
   children,
@@ -18,9 +17,9 @@ export default function RootLayout({
   
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={inter.className + ' min-h-screen flex flex-col'}>
         <Header />
-        <main>
+        <main className="max-w-4xl mx-auto flex-grow px-4">
           {children}
         </main>
         <Footer />
