@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 
 function metadataGenerator(): Metadata {
-  const name = 'Tailwind Dolphin';
+  const name = 'TailwindDolphin';
   const title = ': Tailwind CSS Width,Height,Flex,Border,Grid,Colors,Components'
   const description = 'A tailwind multi-tool to convert and visualize your classes properties.';
 

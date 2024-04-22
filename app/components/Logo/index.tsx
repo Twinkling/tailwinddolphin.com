@@ -6,7 +6,7 @@ const Logo = () => {
     return (
     <nav>
         <Link href="/" >
-            <Image className="w-10 h-10" src={logo} alt="Tailwind Dolphin Logo" />
+            <Image className="w-10 h-10" src={logo} alt="TailwindDolphin Logo" />
         </Link>
     </nav>
     )
