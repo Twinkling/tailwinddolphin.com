@@ -1,25 +1,35 @@
 import type { Metadata, Viewport } from "next";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Inter } from "next/font/google";
+import { dir } from 'i18next';
 import "./globals.css";
 import { Header, Footer } from "@/components";
 import { metadata as meta, viewport as view } from '@/utils/seo';
+import { languages } from '@/i18n/i18nConfig';
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = meta;
 export const viewport: Viewport = view;
 
+export async function generateStaticParams() {
+  return languages.map((lang) => ({ lang }))
+}
+
 export default function RootLayout({
   children,
+  params
 }: Readonly<{
   children: React.ReactNode;
+  params: Record<string, string>;
 }>) {
-  
+  // const router = useRouter();
+  console.log('-----', params);
+  const { lang } = params;
   return (
-    <html lang="en">
+    <html lang={lang} dir={dir(lang)}>
       <body className={inter.className + ' min-h-screen flex flex-col'}>
-        <Header />
+        <Header lang={lang} />
         <main className="max-w-4xl mx-auto flex-grow px-4">
           {children}
         </main>
