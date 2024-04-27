@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react'
+import { useTranslation } from '@/i18n/client';
 import { CopyToClipboard, OutOfBounds } from '..'
 import { WidgetWrapper, WidgetConverter, WidgetResult } from '..'
 import { fontFamilies } from '../../utils/tailwindClasses'
@@ -13,6 +14,8 @@ const FontFamilyHelper = ({ setFontFamily }: Props): JSX.Element => {
   const [value, setValue] = useState(0)
   const [currentFontFamily, setCurrentFontFamily] = useState(fontFamilies[0])
   const [outOfBounds, setOutOfBounds] = useState<'def' | null>(null)
+
+  const { t } = useTranslation({ ns: 'common' });
 
   const reset = () => {
     if (value === 0) return
@@ -40,7 +43,7 @@ const FontFamilyHelper = ({ setFontFamily }: Props): JSX.Element => {
       <button
         className='absolute text-sm transition-all top-2 right-3 text-slate-400 dark:hover:text-indigo-300 hover:text-indigo-700'
         onClick={reset}>
-        Reset
+        {t('reset')}
       </button>
       <WidgetConverter helperName='Font Family'>
         <div className='relative'>

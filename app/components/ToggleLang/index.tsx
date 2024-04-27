@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { languages } from '@/i18n/i18nConfig'
-import { useTranslation } from '@/i18n'
+import { useTranslation } from '@/i18n/server'
 import { PiTranslateFill } from "react-icons/pi";
 
 export const ToggleLang = async ({ lang }: Partial<Record<string, string>>) => {

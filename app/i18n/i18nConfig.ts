@@ -1,9 +1,7 @@
 export const fallbackLang = 'en';
-
 export const languages = [fallbackLang, 'ja'];
-
-export const defaultNS = 'translation';
-
+export type Languages = typeof languages[number];
+export const defaultNS = 'common';
 export const cookieName = 'i18next-lang';
 
 export function getOptions (lang = fallbackLang, ns = defaultNS) {
