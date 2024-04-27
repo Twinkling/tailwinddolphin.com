@@ -1,15 +1,14 @@
-import type { Metadata, Viewport } from "next";
+import type { Viewport } from "next";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Inter } from "next/font/google";
 import { dir } from 'i18next';
 import "./globals.css";
 import { Header, Footer } from "@/components";
-import { metadata as meta, viewport as view } from '@/utils/seo';
+import { viewport as view } from '@/utils/seo';
 import { languages } from '@/i18n/i18nConfig';
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = meta;
 export const viewport: Viewport = view;
 
 export async function generateStaticParams() {
@@ -23,8 +22,6 @@ export default function RootLayout({
   children: React.ReactNode;
   params: Record<string, string>;
 }>) {
-  // const router = useRouter();
-  console.log('-----', params);
   const { lang } = params;
   return (
     <html lang={lang} dir={dir(lang)}>

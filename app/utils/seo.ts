@@ -1,12 +1,12 @@
 import type { Metadata, Viewport } from "next";
+import { useTranslation } from '@/i18n/server';
 
-function metadataGenerator(): Metadata {
+function metadataGenerator({ title, description }: Record<string, string>): Metadata {
   const name = 'TailwindDolphin';
-  const title = ': Tailwind CSS Width,Height,Flex,Border,Grid,Colors,Components'
-  const description = 'A tailwind multi-tool to convert and visualize your classes properties.';
 
   return {
-    title: name + title,
+    metadataBase: new URL('https://tailwinddolphin.com'),
+    title: `${name}: ${title}`,
     description,
     icons: [{
       rel: 'icon',
@@ -20,7 +20,7 @@ function metadataGenerator(): Metadata {
       url: '/icons/favicon-180x180.png'
     }],
     alternates: {
-        canonical:  'https://tailwinddolphin.com',
+        canonical:  './',
     },
     appleWebApp: {
       capable: true,
@@ -29,7 +29,7 @@ function metadataGenerator(): Metadata {
     },
     openGraph: {
       type: 'website',
-      url: 'https://tailwinddolphin.com',
+      url: './',
       title: name,
       description,
       images: '/og-image.png',
@@ -61,6 +61,22 @@ function viewportGenerator(): Viewport {
   }
 }
 
-export const metadata: Metadata = metadataGenerator();
-
 export const viewport: Viewport = viewportGenerator();
+
+type Props = {
+  lang: string;
+  ns?: string;
+}
+
+export async function generateMetadata({ lang, ns = 'common' }: Props): Promise<Metadata> {
+  // eslint-disable-next-line
+  const { t } = await useTranslation(lang, ns);
+  const title = t('title', ns);
+  const description = t('description', ns);
+  const metadata = metadataGenerator({ title, description });
+  return {
+    ...metadata,
+    title,
+    description,
+  };
+};
