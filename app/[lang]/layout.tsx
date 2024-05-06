@@ -32,7 +32,7 @@ export default function RootLayout({
         </main>
         <Footer />
       </body>
-      <GoogleAnalytics gaId="G-9G9WFQH6NM" />
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GAID as string} />
     </html>
   );
 }
