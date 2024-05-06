@@ -3,12 +3,15 @@ import { PiCoffeeFill } from "react-icons/pi";
 import Logo from "@/components/Logo";
 import { ToggleLang } from '@/components/ToggleLang';
 import ToggleTheme from '@/components/ToggleTheme';
+import Auth from '@/components/Auth';
 
 const Header = ({ lang }: {lang?:string}) => {
     return (
       <header className="mx-4 h-16 flex justify-between items-center">
         <Logo />
         <div className='flex justify-between items-center'>
+          {/* OAUTH */}
+          <Auth />
           {/* THEME TOGGLE */}
           <ToggleTheme />
           {/* ko-fi */}

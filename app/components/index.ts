@@ -1,3 +1,4 @@
+export { default as SessionWrapper } from './SessionWrapper';
 export { WidgetConverter, WidgetResult, WidgetWrapper } from './Widget'
 
 export { default as Tooltip } from './Tooltip';

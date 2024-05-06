@@ -13,6 +13,7 @@
     "i18next": "^23.11.2",
     "i18next-resources-to-backend": "^1.2.1",
     "next": "14.2.2",
+    "next-auth": "5.0.0-beta.17",
     "next-i18n-router": "^5.4.1",
     "react": "^18",
     "react-dom": "^18",

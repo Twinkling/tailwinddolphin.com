@@ -7,7 +7,7 @@ export const ToggleLang = async ({ lang }: Partial<Record<string, string>>) => {
   const { t } = await useTranslation(lang, 'header')
   return (
     <button className='group relative'>
-      <PiTranslateFill className='w-6 h-6'/>
+      <PiTranslateFill className='w-6 h-6 dark:text-slate-400'/>
       <ul className='hidden group-hover:block absolute right-0'>
         {languages.filter((l) => lang !== l).map((l, index) => {
           return (<li className='dark:text-slate-400 hover:text-blue-600 hover:dark:text-blue-400' key={l}>
